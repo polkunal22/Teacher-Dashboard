@@ -3,18 +3,24 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="#f6f5fc" name="theme-color"/>
+  <meta content="#f4f3ff" name="theme-color"/>
   <title>
-   Teacher Dashboard | Learnly
+   Teacher Dashboard | Learnly — Modern Classroom Workspace
   </title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Manrope:wght@500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-  <link href="style.css" rel="stylesheet"/>
+  <link href="../css/style.css" rel="stylesheet"/>
  </head>
- <body>
+ <body data-page="overview">
+  <div class="ambient-canvas" aria-hidden="true">
+   <div class="ambient-orb orb-primary"></div>
+   <div class="ambient-orb orb-secondary"></div>
+   <div class="ambient-orb orb-accent"></div>
+  </div>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
   <div class="app-shell">
    <aside class="sidebar" id="sidebar">
     <a aria-label="Learnly home" class="brand" href="#overview">
@@ -22,12 +28,10 @@
       <i class="bi bi-mortarboard-fill">
       </i>
      </span>
-     <span>
-      learnly
-      <span class="brand-dot">
-       .
-      </span>
+     <span class="brand-text">
+      learnly<span class="brand-dot">.</span>
      </span>
+     <span class="brand-badge">PRO</span>
     </a>
     <div class="sidebar-label">
      WORKSPACE
@@ -46,7 +50,7 @@
       <span>
        Students
       </span>
-      <span class="nav-count">
+      <span class="nav-count" id="sidebarStudentCount">
        24
       </span>
      </a>
@@ -70,7 +74,7 @@
       <span>
        Assignments
       </span>
-      <span class="nav-count">
+      <span class="nav-count" id="sidebarAssignmentCount">
        3
       </span>
      </a>
@@ -117,15 +121,16 @@
     </nav>
     <div class="sidebar-bottom">
      <div class="help-card">
+      <div class="help-card-glow" aria-hidden="true"></div>
       <span class="help-icon">
-       <i class="bi bi-chat-square-text">
+       <i class="bi bi-stars">
        </i>
       </span>
       <strong>
        Need a hand?
       </strong>
       <p>
-       Our support team is here for you.
+       Our academic support team is here for you 24/7.
       </p>
       <a href="mailto:support@learnly.example">
        Get support
@@ -134,18 +139,19 @@
       </a>
      </div>
      <div class="sidebar-foot">
-      © 2026 Learnly Education
+      <span>© 2026 Learnly Education</span>
+      <span class="status-dot-inline" title="All systems operational"></span>
      </div>
     </div>
    </aside>
    <main class="main-area" id="overview">
-    <header class="topbar">
+    <header class="topbar" id="topbar">
      <button aria-label="Toggle navigation" class="icon-button menu-toggle" id="menuToggle">
       <i class="bi bi-list">
       </i>
      </button>
      <div class="breadcrumb-text">
-      Pages
+      <span>Workspace</span>
       <i class="bi bi-chevron-right">
       </i>
       <strong>
@@ -153,15 +159,15 @@
       </strong>
      </div>
      <div class="top-actions">
-      <label class="top-search">
+      <label class="top-search" id="topSearchContainer">
        <i class="bi bi-search">
        </i>
-       <input aria-label="Search students and courses" id="globalSearch" placeholder="Search anything..." type="search"/>
-       <kbd>
+       <input aria-label="Search students and courses" id="globalSearch" placeholder="Search students, courses, grades..." type="search"/>
+       <kbd title="Press Ctrl+K or ⌘K to search">
         ⌘ K
        </kbd>
       </label>
-      <button aria-label="Notifications" class="icon-button notification-button">
+      <button aria-label="Notifications" class="icon-button notification-button" title="Notifications">
        <i class="bi bi-bell">
        </i>
        <span>
@@ -170,13 +176,15 @@
       <div class="top-divider">
       </div>
       <a class="user-chip" href="#profile">
-       <img alt="" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=96&amp;q=80"/>
+       <div class="avatar-ring">
+        <img alt="Olivia Martin" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=120&amp;q=80"/>
+       </div>
        <span>
         <strong>
          Olivia Martin
         </strong>
         <small>
-         Teacher
+         Lead Educator
         </small>
        </span>
        <i class="bi bi-chevron-down">
@@ -185,34 +193,44 @@
      </div>
     </header>
     <div class="page-content">
-     <section class="welcome-row">
-      <div>
+     <section class="welcome-row hero-banner" data-animate="hero">
+      <div class="hero-mesh" aria-hidden="true"></div>
+      <div class="hero-copy">
        <div class="eyebrow">
         <span class="eyebrow-dot">
         </span>
         <span id="welcomeDate">
+         SATURDAY, NOVEMBER 21, 2026
         </span>
+        <span class="eyebrow-pill">FALL TERM</span>
        </div>
        <h1>
         <span id="welcomeGreeting">
          Good morning, Olivia
         </span>
-        <span class="wave">
+        <span class="wave" aria-hidden="true">
          ✦
         </span>
        </h1>
        <p class="welcome-copy">
-        Here’s what’s happening in your classroom today.
+        Here’s what’s happening in your classroom today — 4 classes scheduled and 88% live attendance recorded.
        </p>
       </div>
-      <button class="btn btn-primary create-button" data-bs-target="#assignmentModal" data-bs-toggle="modal">
-       <i class="bi bi-plus-lg">
-       </i>
-       Create assignment
-      </button>
+      <div class="hero-actions">
+       <button class="btn btn-light hero-secondary-btn magnetic-btn" data-bs-target="#studentModal" data-bs-toggle="modal" type="button">
+        <i class="bi bi-person-plus">
+        </i>
+        Add student
+       </button>
+       <button class="btn btn-primary create-button magnetic-btn" data-bs-target="#assignmentModal" data-bs-toggle="modal" type="button">
+        <i class="bi bi-plus-lg">
+        </i>
+        Create assignment
+       </button>
+      </div>
      </section>
      <section aria-label="Dashboard summary" class="stats-grid">
-      <article class="stat-card">
+      <article class="stat-card interactive-card" data-animate="card">
        <div class="stat-top">
         <span>
          Total students
@@ -222,7 +240,7 @@
          </i>
         </span>
        </div>
-       <div class="stat-value" id="totalStudents">
+       <div class="stat-value" data-counter="24" id="totalStudents">
         24
        </div>
        <div class="stat-foot">
@@ -234,25 +252,25 @@
         <span>
          vs. last month
         </span>
-        <span class="mini-bars">
-         <i style="height:12px">
+        <span class="mini-bars" aria-hidden="true">
+         <i style="--bar-h:12px">
          </i>
-         <i style="height:17px">
+         <i style="--bar-h:17px">
          </i>
-         <i style="height:14px">
+         <i style="--bar-h:14px">
          </i>
-         <i style="height:21px">
+         <i style="--bar-h:21px">
          </i>
-         <i style="height:18px">
+         <i style="--bar-h:18px">
          </i>
-         <i style="height:26px">
+         <i style="--bar-h:26px">
          </i>
-         <i style="height:22px">
+         <i style="--bar-h:22px">
          </i>
         </span>
        </div>
       </article>
-      <article class="stat-card">
+      <article class="stat-card interactive-card" data-animate="card">
        <div class="stat-top">
         <span>
          Active courses
@@ -262,32 +280,32 @@
          </i>
         </span>
        </div>
-       <div class="stat-value" id="totalCourses">
+       <div class="stat-value" data-counter="6" data-pad="2" id="totalCourses">
         06
        </div>
        <div class="stat-foot">
         <span class="stat-note">
-         Across 3 grade levels
+         Across <b>3 grade levels</b>
         </span>
-        <span class="mini-bars green">
-         <i style="height:17px">
+        <span class="mini-bars green" aria-hidden="true">
+         <i style="--bar-h:17px">
          </i>
-         <i style="height:12px">
+         <i style="--bar-h:12px">
          </i>
-         <i style="height:21px">
+         <i style="--bar-h:21px">
          </i>
-         <i style="height:16px">
+         <i style="--bar-h:16px">
          </i>
-         <i style="height:23px">
+         <i style="--bar-h:23px">
          </i>
-         <i style="height:18px">
+         <i style="--bar-h:18px">
          </i>
-         <i style="height:26px">
+         <i style="--bar-h:26px">
          </i>
         </span>
        </div>
       </article>
-      <article class="stat-card">
+      <article class="stat-card interactive-card" data-animate="card">
        <div class="stat-top">
         <span>
          Classes today
@@ -297,12 +315,12 @@
          </i>
         </span>
        </div>
-       <div class="stat-value">
+       <div class="stat-value" data-counter="4" data-pad="2">
         04
        </div>
        <div class="stat-foot">
         <span class="stat-note">
-         Across 3 grade levels
+         Next at <b>10:30 AM</b> · Lab 03
         </span>
         <span class="stat-foot-symbol">
          <i class="bi bi-clock-history">
@@ -310,7 +328,7 @@
         </span>
        </div>
       </article>
-      <article class="stat-card">
+      <article class="stat-card interactive-card" data-animate="card">
        <div class="stat-top">
         <span>
          Assignments due
@@ -320,7 +338,7 @@
          </i>
         </span>
        </div>
-       <div class="stat-value" id="totalAssignments">
+       <div class="stat-value" data-counter="3" data-pad="2" id="totalAssignments">
         03
        </div>
        <div class="stat-foot">
@@ -337,17 +355,17 @@
       </article>
      </section>
      <div class="dashboard-grid">
-      <section class="panel schedule-panel" id="timetable">
+      <section class="panel schedule-panel" data-animate="panel" id="timetable">
        <div class="panel-heading">
         <div>
          <h2>
           Today’s schedule
          </h2>
          <p>
-          Your classes for today
+          Your classes and learning spaces for today
          </p>
         </div>
-        <button class="text-action" data-jump="timetable">
+        <button class="text-action" data-jump="timetable" type="button">
          Full timetable
          <i class="bi bi-arrow-right">
          </i>
@@ -432,7 +450,7 @@
           </span>
          </div>
          <span class="room-pill">
-          Room 204
+          <i class="bi bi-door-open"></i> Room 204
          </span>
         </article>
         <article class="schedule-item">
@@ -460,7 +478,7 @@
           </span>
          </div>
          <span class="room-pill">
-          Lab 03
+          <i class="bi bi-eyedropper"></i> Lab 03
          </span>
         </article>
         <article class="schedule-item">
@@ -488,7 +506,7 @@
           </span>
          </div>
          <span class="room-pill">
-          Room 108
+          <i class="bi bi-door-open"></i> Room 108
          </span>
         </article>
         <article class="schedule-item">
@@ -516,12 +534,12 @@
           </span>
          </div>
          <span class="room-pill">
-          Room 204
+          <i class="bi bi-door-open"></i> Room 204
          </span>
         </article>
        </div>
       </section>
-      <section class="panel attendance-panel" id="attendance">
+      <section class="panel attendance-panel" data-animate="panel" id="attendance">
        <div class="panel-heading">
         <div>
          <h2>
@@ -538,7 +556,7 @@
         </span>
        </div>
        <div class="attendance-summary">
-        <div class="attendance-ring">
+        <div class="attendance-ring" id="attendanceRing" style="--attendance-pct: 88">
          <div>
           <strong id="attendancePercent">
            88%
@@ -626,7 +644,7 @@
          </i>
          Updated just now
         </span>
-        <button class="btn attendance-btn" id="attendanceButton">
+        <button class="btn attendance-btn magnetic-btn" id="attendanceButton" type="button">
          Take attendance
          <i class="bi bi-arrow-right">
          </i>
@@ -635,23 +653,23 @@
       </section>
      </div>
      <div class="dashboard-grid lower-grid">
-      <section class="panel students-panel" id="students">
+      <section class="panel students-panel" data-animate="panel" id="students">
        <div class="panel-heading">
         <div>
          <h2>
           My students
          </h2>
          <p>
-          Keep track of your learners
+          Keep track of your learners and academic standing
          </p>
         </div>
         <div class="heading-actions">
          <label class="table-search">
           <i class="bi bi-search">
           </i>
-          <input aria-label="Search students" id="studentSearch" placeholder="Search students" type="search"/>
+          <input aria-label="Search students" id="studentSearch" placeholder="Filter roster..." type="search"/>
          </label>
-         <button class="btn btn-outline-primary add-student" data-bs-target="#studentModal" data-bs-toggle="modal">
+         <button class="btn btn-outline-primary add-student" data-bs-target="#studentModal" data-bs-toggle="modal" type="button">
           <i class="bi bi-plus-lg">
           </i>
           <span>
@@ -684,7 +702,7 @@
           <tr data-search="emma wilson mathematics 9a">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=47"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=47"/>
              <span>
               <strong>
                Emma Wilson
@@ -702,9 +720,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             96%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              96%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:96%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-a">
@@ -712,7 +733,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Emma Wilson" class="row-menu">
+            <button aria-label="Actions for Emma Wilson" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -721,7 +742,7 @@
           <tr data-search="noah thomas biology 10b">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=12"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=12"/>
              <span>
               <strong>
                Noah Thomas
@@ -739,9 +760,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             89%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              89%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:89%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-b">
@@ -749,7 +773,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Noah Thomas" class="row-menu">
+            <button aria-label="Actions for Noah Thomas" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -758,7 +782,7 @@
           <tr data-search="ava patel creative writing 8a">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=44"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=44"/>
              <span>
               <strong>
                Ava Patel
@@ -776,9 +800,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             92%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              92%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:92%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-a">
@@ -786,7 +813,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Ava Patel" class="row-menu">
+            <button aria-label="Actions for Ava Patel" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -795,7 +822,7 @@
           <tr data-search="liam anderson geometry 9b">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=60"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=60"/>
              <span>
               <strong>
                Liam Anderson
@@ -813,9 +840,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             78%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              78%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="warn" style="width:78%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-c">
@@ -823,7 +853,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Liam Anderson" class="row-menu">
+            <button aria-label="Actions for Liam Anderson" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -832,7 +862,7 @@
           <tr data-search="mia chen mathematics 9a">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=32"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=32"/>
              <span>
               <strong>
                Mia Chen
@@ -850,9 +880,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             94%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              94%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:94%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-a">
@@ -860,7 +893,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Mia Chen" class="row-menu">
+            <button aria-label="Actions for Mia Chen" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -869,7 +902,7 @@
           <tr data-search="ethan brooks biology 10b">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=11"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=11"/>
              <span>
               <strong>
                Ethan Brooks
@@ -887,9 +920,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             87%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              87%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:87%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-b">
@@ -897,7 +933,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Ethan Brooks" class="row-menu">
+            <button aria-label="Actions for Ethan Brooks" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -906,7 +942,7 @@
           <tr data-search="sophia garcia creative writing 8a">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=45"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=45"/>
              <span>
               <strong>
                Sophia Garcia
@@ -924,9 +960,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             98%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              98%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:98%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-a">
@@ -934,7 +973,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Sophia Garcia" class="row-menu">
+            <button aria-label="Actions for Sophia Garcia" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -943,7 +982,7 @@
           <tr data-search="jackson reed geometry 9b">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=14"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=14"/>
              <span>
               <strong>
                Jackson Reed
@@ -961,9 +1000,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             82%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              82%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:82%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-b">
@@ -971,7 +1013,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Jackson Reed" class="row-menu">
+            <button aria-label="Actions for Jackson Reed" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -980,7 +1022,7 @@
           <tr data-search="isabella moore biology 10b">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=49"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=49"/>
              <span>
               <strong>
                Isabella Moore
@@ -998,9 +1040,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             91%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              91%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:91%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-a">
@@ -1008,7 +1053,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Isabella Moore" class="row-menu">
+            <button aria-label="Actions for Isabella Moore" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -1017,7 +1062,7 @@
           <tr data-search="lucas kim mathematics 9a">
            <td>
             <div class="student-name">
-             <img alt="" src="https://i.pravatar.cc/80?img=68"/>
+             <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=68"/>
              <span>
               <strong>
                Lucas Kim
@@ -1035,9 +1080,12 @@
             </small>
            </td>
            <td>
-            <span class="attendance-value">
-             89%
-            </span>
+            <div class="attendance-cell">
+             <span class="attendance-value">
+              89%
+             </span>
+             <span class="attendance-mini-track" aria-hidden="true"><i style="width:89%"></i></span>
+            </div>
            </td>
            <td>
             <span class="grade-pill grade-b">
@@ -1045,7 +1093,7 @@
             </span>
            </td>
            <td>
-            <button aria-label="Actions for Lucas Kim" class="row-menu">
+            <button aria-label="Actions for Lucas Kim" class="row-menu" type="button">
              <i class="bi bi-three-dots">
              </i>
             </button>
@@ -1054,14 +1102,15 @@
          </tbody>
         </table>
         <div class="empty-search d-none" id="emptySearch">
-         No students found. Try another search.
+         <i class="bi bi-search"></i>
+         <p>No students found matching your search. Try another keyword.</p>
         </div>
        </div>
        <div class="table-footer">
         <span id="studentCountLabel">
          Showing
          <b>
-          4
+          10
          </b>
          of
          <b>
@@ -1069,14 +1118,14 @@
          </b>
          students
         </span>
-        <button class="text-action" data-jump="students">
+        <button class="text-action" data-jump="students" type="button">
          View all students
          <i class="bi bi-arrow-right">
          </i>
         </button>
        </div>
       </section>
-      <section class="panel assignments-panel" id="assignments">
+      <section class="panel assignments-panel" data-animate="panel" id="assignments">
        <div class="panel-heading">
         <div>
          <h2>
@@ -1086,7 +1135,7 @@
           Stay on top of upcoming work
          </p>
         </div>
-        <button class="btn btn-primary assignment-create" data-bs-target="#assignmentModal" data-bs-toggle="modal">
+        <button class="btn btn-primary assignment-create magnetic-btn" data-bs-target="#assignmentModal" data-bs-toggle="modal" type="button">
          <i class="bi bi-plus-lg">
          </i>
          Create assignment
@@ -1158,7 +1207,7 @@
            Due Nov 24, 2026
           </small>
          </div>
-         <span class="status-pill status-pending">
+         <span class="status-pill status-pending" role="button" tabindex="0" title="Click to toggle status">
           Pending
          </span>
         </article>
@@ -1183,7 +1232,7 @@
            Due Nov 26, 2026
           </small>
          </div>
-         <span class="status-pill status-progress">
+         <span class="status-pill status-progress" role="button" tabindex="0" title="Click to toggle status">
           In progress
          </span>
         </article>
@@ -1208,12 +1257,12 @@
            Due Nov 30, 2026
           </small>
          </div>
-         <span class="status-pill status-pending">
+         <span class="status-pill status-pending" role="button" tabindex="0" title="Click to toggle status">
           Pending
          </span>
         </article>
        </div>
-       <button class="all-assignments" data-jump="assignments">
+       <button class="all-assignments" data-jump="assignments" type="button">
         View all assignments
         <i class="bi bi-arrow-right">
         </i>
@@ -1221,24 +1270,24 @@
       </section>
      </div>
      <div class="dashboard-grid bottom-grid">
-      <section class="panel courses-panel" id="courses">
+      <section class="panel courses-panel" data-animate="panel" id="courses">
        <div class="panel-heading">
         <div>
          <h2>
           My courses
          </h2>
          <p>
-          Your active learning spaces
+          Your active learning spaces and curriculum progress
          </p>
         </div>
-        <button class="text-action" id="addCourseButton">
+        <button class="text-action" id="addCourseButton" type="button">
          <i class="bi bi-plus-lg">
          </i>
          Add course
         </button>
        </div>
        <div class="courses-grid" id="coursesGrid">
-        <article class="course-card course-purple">
+        <article class="course-card course-purple interactive-card">
          <span class="course-symbol">
           <i class="bi bi-braces-asterisk">
           </i>
@@ -1262,7 +1311,7 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-orange">
+        <article class="course-card course-orange interactive-card">
          <span class="course-symbol">
           <i class="bi bi-flower1">
           </i>
@@ -1286,7 +1335,7 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-blue">
+        <article class="course-card course-blue interactive-card">
          <span class="course-symbol">
           <i class="bi bi-book-half">
           </i>
@@ -1310,7 +1359,7 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-purple">
+        <article class="course-card course-purple interactive-card">
          <span class="course-symbol">
           <i class="bi bi-lightning-charge">
           </i>
@@ -1334,7 +1383,7 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-orange">
+        <article class="course-card course-orange interactive-card">
          <span class="course-symbol">
           <i class="bi bi-globe-americas">
           </i>
@@ -1358,7 +1407,7 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-blue">
+        <article class="course-card course-blue interactive-card">
          <span class="course-symbol">
           <i class="bi bi-laptop">
           </i>
@@ -1384,7 +1433,7 @@
         </article>
        </div>
       </section>
-      <section class="panel results-panel" id="results">
+      <section class="panel results-panel" data-animate="panel" id="results">
        <div class="panel-heading">
         <div>
          <h2>
@@ -1394,7 +1443,7 @@
           Latest student performance
          </p>
         </div>
-        <button class="text-action" data-jump="results">
+        <button class="text-action" data-jump="results" type="button">
          See all
          <i class="bi bi-arrow-right">
          </i>
@@ -1456,7 +1505,7 @@
        <div class="results-list">
         <div class="result-row">
          <div class="result-student">
-          <img alt="" src="https://i.pravatar.cc/80?img=47"/>
+          <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=47"/>
           <span>
            <strong>
             Emma Wilson
@@ -1474,7 +1523,7 @@
            </span>
           </strong>
           <small>
-           92%
+           92% · Excellent
           </small>
           <span class="score-track">
            <i style="width:92%">
@@ -1484,7 +1533,7 @@
         </div>
         <div class="result-row">
          <div class="result-student">
-          <img alt="" src="https://i.pravatar.cc/80?img=12"/>
+          <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=12"/>
           <span>
            <strong>
             Noah Thomas
@@ -1502,7 +1551,7 @@
            </span>
           </strong>
           <small>
-           84%
+           84% · Proficient
           </small>
           <span class="score-track">
            <i style="width:84%">
@@ -1512,7 +1561,7 @@
         </div>
         <div class="result-row">
          <div class="result-student">
-          <img alt="" src="https://i.pravatar.cc/80?img=44"/>
+          <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=44"/>
           <span>
            <strong>
             Ava Patel
@@ -1530,7 +1579,7 @@
            </span>
           </strong>
           <small>
-           96%
+           96% · Top score
           </small>
           <span class="score-track">
            <i style="width:96%">
@@ -1541,17 +1590,17 @@
        </div>
       </section>
      </div>
-     <section class="panel announcements-panel" id="announcements">
+     <section class="panel announcements-panel" data-animate="panel" id="announcements">
       <div class="panel-heading">
        <div>
         <h2>
          Announcements
         </h2>
         <p>
-         Stay in the loop with school updates
+         Stay in the loop with school updates and faculty bulletins
         </p>
        </div>
-       <button class="text-action" id="announcementButton">
+       <button class="text-action" id="announcementButton" type="button">
         <i class="bi bi-plus-lg">
         </i>
         New announcement
@@ -1577,7 +1626,7 @@
           Sign up for your preferred time slots by Friday, November 27. The scheduling link has been sent to all families.
          </p>
         </div>
-        <button aria-label="More announcement options" class="announcement-more">
+        <button aria-label="More announcement options" class="announcement-more" type="button">
          <i class="bi bi-three-dots">
          </i>
         </button>
@@ -1634,7 +1683,7 @@
          Create a new update or remove an existing one.
         </p>
        </div>
-       <button class="btn btn-light manager-back" id="announcementManagerBack">
+       <button class="btn btn-light manager-back" id="announcementManagerBack" type="button">
         <i class="bi bi-arrow-left">
         </i>
         Back to announcements
@@ -1692,17 +1741,17 @@
       <div class="manager-announcement-list" id="announcementManagerList">
       </div>
      </section>
-     <section class="panel profile-panel" id="profile">
+     <section class="panel profile-panel" data-animate="panel" id="profile">
       <div class="panel-heading">
        <div>
         <h2>
          Teacher profile
         </h2>
         <p>
-         Your account and contact details
+         Your account, department credentials, and contact details
         </p>
        </div>
-       <button class="text-action" id="editProfileButton">
+       <button class="text-action" id="editProfileButton" type="button">
         <i class="bi bi-pencil">
         </i>
         Edit profile
@@ -1715,7 +1764,7 @@
          Olivia Martin
         </strong>
         <span>
-         Mathematics &amp; Science Teacher
+         Mathematics &amp; Science Teacher · Senior Faculty
         </span>
        </div>
        <div class="profile-contact">
@@ -1804,6 +1853,43 @@
       <button class="btn btn-primary" type="submit">
        Add student
       </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="studentActionModalTitle" class="modal fade" id="studentActionModal" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" id="studentActionForm">
+     <div class="modal-header">
+      <div>
+       <h2 class="modal-title" id="studentActionModalTitle">
+        Manage student
+       </h2>
+       <p>
+        Update student details or remove from roster.
+       </p>
+      </div>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <label class="form-label" for="editStudentNameInput">
+       Student full name
+      </label>
+      <input class="form-control" id="editStudentNameInput" required=""/>
+     </div>
+     <div class="modal-footer justify-content-between">
+      <button class="btn btn-outline-danger" id="deleteStudentBtn" type="button">
+       <i class="bi bi-trash3 me-1"></i> Remove student
+      </button>
+      <div class="d-flex gap-2">
+       <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+        Cancel
+       </button>
+       <button class="btn btn-primary" type="submit">
+        Save changes
+       </button>
+      </div>
      </div>
     </form>
    </div>
@@ -1974,7 +2060,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
   </script>
-  <script src="scripte.js">
+  <script src="../js/scripte.js">
   </script>
  </body>
 </html>
