@@ -1,0 +1,13 @@
+{
+  "name": "learnly-teacher-dashboard",
+  "version": "2.6.0",
+  "description": "Learnly Pro — Teacher & Admin Classroom Workspace with Relational SQL Database & Node Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -3,7 +3,6 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="#f4f3ff" name="theme-color"/>
   <title>
    Teacher Dashboard | Learnly — Modern Classroom Workspace
   </title>
@@ -19,6 +18,180 @@
    <div class="ambient-orb orb-primary"></div>
    <div class="ambient-orb orb-secondary"></div>
    <div class="ambient-orb orb-accent"></div>
+  </div>
+  <div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle" data-auth-mode="admin">
+   <div class="auth-bg-grid" aria-hidden="true"></div>
+   <div class="auth-glow auth-glow-1" aria-hidden="true"></div>
+   <div class="auth-glow auth-glow-2" aria-hidden="true"></div>
+   <div class="auth-shell">
+    <aside class="auth-showcase" aria-hidden="true">
+     <div class="showcase-top">
+      <div class="showcase-brand">
+       <span class="showcase-logo">
+        <i class="bi bi-mortarboard-fill"></i>
+       </span>
+       <span class="showcase-name">learnly<span>.</span></span>
+       <span class="showcase-version">EDU OS 2.6</span>
+      </div>
+      <div class="showcase-headline">
+       <span class="showcase-eyebrow">
+        <i class="bi bi-stars"></i> NEXT-GEN ACADEMIC WORKSPACE
+       </span>
+       <h2>Empowering modern classrooms with real-time clarity.</h2>
+       <p>Orchestrate student rosters, live lecture schedules, curriculum progress, and faculty announcements from one unified command center.</p>
+      </div>
+     </div>
+     <div class="showcase-preview-card" id="authRolePreviewCard">
+      <div class="preview-card-header">
+       <span class="preview-icon" id="authPreviewIcon">
+        <i class="bi bi-shield-fill-check"></i>
+       </span>
+       <div>
+        <small id="authPreviewSubtitle">ACTIVE ACCESS TIER</small>
+        <strong id="authPreviewTitle">System Administrator Portal</strong>
+       </div>
+       <span class="preview-status-badge" id="authPreviewBadge">FULL ACCESS</span>
+      </div>
+      <p class="preview-card-desc" id="authPreviewDesc">
+       Unrestricted control across all 8 institutional modules, faculty settings, and analytics.
+      </p>
+      <div class="preview-modules" id="authPreviewModules">
+       <span><i class="bi bi-check2"></i> Overview</span>
+       <span><i class="bi bi-check2"></i> Students</span>
+       <span><i class="bi bi-check2"></i> Lectures</span>
+       <span><i class="bi bi-check2"></i> Announcements</span>
+       <span class="admin-module-chip"><i class="bi bi-check2"></i> Courses</span>
+       <span class="admin-module-chip"><i class="bi bi-check2"></i> Attendance</span>
+       <span class="admin-module-chip"><i class="bi bi-check2"></i> Assignments</span>
+       <span class="admin-module-chip"><i class="bi bi-check2"></i> Results</span>
+      </div>
+     </div>
+     <div class="showcase-footer">
+      <div class="showcase-avatars">
+       <img alt="" src="https://i.pravatar.cc/80?img=47"/>
+       <img alt="" src="https://i.pravatar.cc/80?img=12"/>
+       <img alt="" src="https://i.pravatar.cc/80?img=44"/>
+       <img alt="" src="https://i.pravatar.cc/80?img=32"/>
+       <span>+2.4k</span>
+      </div>
+      <div class="showcase-trust">
+       <strong>Trusted by 2,400+ educators</strong>
+       <span><i class="bi bi-shield-lock-fill"></i> 256-bit SSL · Role-Based Access Control</span>
+      </div>
+     </div>
+    </aside>
+    <div class="auth-card">
+     <div class="auth-card-top">
+      <div class="auth-brand">
+       <span class="brand-mark">
+        <i class="bi bi-mortarboard-fill"></i>
+       </span>
+       <span class="brand-text">learnly<span class="brand-dot">.</span></span>
+       <span class="brand-badge" id="authCardRoleBadge">ADMIN &amp; FACULTY</span>
+      </div>
+      <h1 id="authTitle">Welcome back</h1>
+      <p class="auth-subtitle">Select your portal role or enter your credentials to continue.</p>
+     </div>
+     <div class="auth-role-tabs" role="group" aria-label="Select portal role">
+      <button class="auth-role-tab active" id="roleTabAdmin" type="button">
+       <i class="bi bi-shield-shaded"></i>
+       <span>Admin Portal</span>
+      </button>
+      <button class="auth-role-tab" id="roleTabTeacher" type="button">
+       <i class="bi bi-person-workspace"></i>
+       <span>Teacher Portal</span>
+      </button>
+     </div>
+     <div class="auth-error d-none" id="authError" role="alert">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <span id="authErrorText">Invalid email/username or password.</span>
+     </div>
+     <form class="auth-form" id="authForm">
+      <div class="auth-field">
+       <label class="form-label" for="authEmail">Email or Username</label>
+       <div class="auth-input-wrap">
+        <i class="bi bi-envelope-at"></i>
+        <input autocomplete="username" class="form-control" id="authEmail" placeholder="admin@learnly.edu or admin" required="" value="admin@learnly.edu"/>
+       </div>
+      </div>
+      <div class="auth-field">
+       <div class="d-flex justify-content-between align-items-center">
+        <label class="form-label mb-0" for="authPassword">Password</label>
+        <span class="auth-hint-label" id="authPasswordHint">Default: Admin@123</span>
+       </div>
+       <div class="auth-input-wrap mt-1">
+        <i class="bi bi-key"></i>
+        <input autocomplete="current-password" class="form-control" id="authPassword" placeholder="Enter your password" required="" type="password" value="Admin@123"/>
+        <button aria-label="Show or hide password" class="auth-eye-btn" id="togglePasswordBtn" type="button">
+         <i class="bi bi-eye"></i>
+        </button>
+       </div>
+      </div>
+      <div class="auth-options">
+       <label class="auth-remember">
+        <input checked="" id="authRemember" type="checkbox"/>
+        <span>Keep me signed in</span>
+       </label>
+       <span class="auth-secure-tag"><i class="bi bi-patch-check-fill"></i> Verified Session</span>
+      </div>
+      <button class="btn btn-primary auth-submit-btn" id="authSubmitBtn" type="submit">
+       <span id="authSubmitLabel">Sign in as Administrator</span>
+       <i class="bi bi-arrow-right" id="authSubmitIcon"></i>
+      </button>
+     </form>
+     <div class="auth-demo-box">
+      <div class="auth-demo-header">
+       <span><i class="bi bi-lightning-charge-fill"></i> INSTANT DEMO CREDENTIALS</span>
+       <small>Click to auto-fill</small>
+      </div>
+      <div class="auth-demo-grid">
+       <button class="auth-demo-pill active" id="fillAdminBtn" type="button">
+        <div class="demo-pill-top">
+         <span class="demo-role-tag admin"><i class="bi bi-shield-fill"></i> ADMIN</span>
+         <span class="demo-autofill-tag">8 Modules</span>
+        </div>
+        <strong>admin@learnly.edu</strong>
+        <small>Key: <code>Admin@123</code></small>
+       </button>
+       <button class="auth-demo-pill" id="fillTeacherBtn" type="button">
+        <div class="demo-pill-top">
+         <span class="demo-role-tag teacher"><i class="bi bi-mortarboard-fill"></i> TEACHER</span>
+         <span class="demo-autofill-tag">3 Modules</span>
+        </div>
+        <strong>olivia.martin@learnly.edu</strong>
+        <small>Key: <code>Teacher@123</code></small>
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="auth-launch-screen" id="authLaunchScreen" aria-live="polite">
+    <div class="launch-card">
+     <div class="launch-orbit-wrap">
+      <div class="launch-orbit-ring ring-outer"></div>
+      <div class="launch-orbit-ring ring-inner"></div>
+      <div class="launch-emblem" id="launchRoleIcon">
+       <i class="bi bi-shield-fill-check"></i>
+      </div>
+     </div>
+     <span class="launch-role-pill" id="launchRoleBadge">ADMIN PORTAL · FULL ACCESS</span>
+     <h2 id="launchWelcomeTitle">Welcome back, Olivia Martin</h2>
+     <p id="launchStatusText">Authenticating secure session...</p>
+     <div class="launch-progress-track">
+      <div class="launch-progress-fill" id="launchProgressBar"></div>
+     </div>
+     <div class="launch-modules-row" id="launchModulesRow">
+      <span><i class="bi bi-check2-circle"></i> Overview</span>
+      <span><i class="bi bi-check2-circle"></i> Students</span>
+      <span><i class="bi bi-check2-circle"></i> Courses</span>
+      <span><i class="bi bi-check2-circle"></i> Attendance</span>
+      <span><i class="bi bi-check2-circle"></i> Assignments</span>
+      <span><i class="bi bi-check2-circle"></i> Lectures</span>
+      <span><i class="bi bi-check2-circle"></i> Results</span>
+      <span><i class="bi bi-check2-circle"></i> Announcements</span>
+     </div>
+    </div>
+   </div>
   </div>
   <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
   <div class="app-shell">
@@ -81,8 +254,8 @@
      <a class="nav-link" href="#timetable">
       <i class="bi bi-calendar-week">
       </i>
-      <span>
-       Timetable
+      <span id="sidebarLectureLabel">
+       Lectures
       </span>
      </a>
      <a class="nav-link" href="#results">
@@ -97,6 +270,16 @@
       </i>
       <span>
        Announcements
+      </span>
+     </a>
+     <a class="nav-link" href="#database">
+      <i class="bi bi-database-fill-gear">
+      </i>
+      <span>
+       SQL Database
+      </span>
+      <span class="nav-count" id="sidebarDbRecordsCount">
+       28
       </span>
      </a>
     </nav>
@@ -146,7 +329,7 @@
    </aside>
    <main class="main-area" id="overview">
     <header class="topbar" id="topbar">
-     <button aria-label="Toggle navigation" class="icon-button menu-toggle" id="menuToggle">
+     <button aria-label="Toggle navigation" class="icon-button menu-toggle" id="menuToggle" type="button">
       <i class="bi bi-list">
       </i>
      </button>
@@ -167,14 +350,57 @@
         ⌘ K
        </kbd>
       </label>
-      <button aria-label="Notifications" class="icon-button notification-button" title="Notifications">
-       <i class="bi bi-bell">
+      <button aria-label="Toggle Dark or Light theme" class="icon-button theme-toggle-button" id="themeToggleBtn" title="Switch Dark / Light Theme" type="button">
+       <i class="bi bi-moon-stars">
        </i>
-       <span>
-       </span>
       </button>
+      <div class="notification-wrap">
+       <button aria-expanded="false" aria-label="Notifications" class="icon-button notification-button" id="notificationBtn" title="Notifications" type="button">
+        <i class="bi bi-bell">
+        </i>
+        <span id="notificationDot">
+        </span>
+       </button>
+       <div aria-label="Recent notifications" class="notification-popover d-none" id="notificationPopover" role="region">
+        <div class="notification-popover-head">
+         <strong>Activity &amp; Alerts</strong>
+         <button class="text-action btn-clear-notifs" id="clearNotificationsBtn" type="button">Mark all read</button>
+        </div>
+        <div class="notification-list" id="notificationList">
+         <div class="notification-item unread">
+          <span class="notif-icon purple"><i class="bi bi-database-check"></i></span>
+          <div>
+           <strong>SQL Database synced</strong>
+           <small>All 7 relational tables active · Just now</small>
+          </div>
+         </div>
+         <div class="notification-item unread">
+          <span class="notif-icon green"><i class="bi bi-calendar2-check"></i></span>
+          <div>
+           <strong>Grade 9A Attendance ready</strong>
+           <small>21 present, 3 absent recorded · 10m ago</small>
+          </div>
+         </div>
+         <div class="notification-item">
+          <span class="notif-icon amber"><i class="bi bi-megaphone"></i></span>
+          <div>
+           <strong>Parent-teacher conference week</strong>
+           <small>Sign-up slots open until Friday · 2h ago</small>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
       <div class="top-divider">
       </div>
+      <button class="sql-status-pill" data-jump="database" id="sqlStatusPill" title="Open SQL Database Studio" type="button">
+       <span class="sql-live-dot"></span>
+       <span>SQL DB · SYNCED</span>
+      </button>
+      <button class="role-switch-pill" id="quickSwitchRoleBtn" title="Click to switch between Admin and Teacher view" type="button">
+       <i class="bi bi-shield-lock-fill"></i>
+       <span id="topbarRoleBadge">ADMIN VIEW</span>
+      </button>
       <a class="user-chip" href="#profile">
        <div class="avatar-ring">
         <img alt="Olivia Martin" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=120&amp;q=80"/>
@@ -203,6 +429,7 @@
          SATURDAY, NOVEMBER 21, 2026
         </span>
         <span class="eyebrow-pill">FALL TERM</span>
+        
        </div>
        <h1>
         <span id="welcomeGreeting">
@@ -222,7 +449,12 @@
         </i>
         Add student
        </button>
-       <button class="btn btn-primary create-button magnetic-btn" data-bs-target="#assignmentModal" data-bs-toggle="modal" type="button">
+       <button class="btn btn-primary create-button magnetic-btn teacher-lecture-cta" data-bs-target="#scheduleModal" data-bs-toggle="modal" type="button">
+        <i class="bi bi-calendar-plus">
+        </i>
+        Add lecture
+       </button>
+       <button class="btn btn-primary create-button magnetic-btn admin-only-cta" data-bs-target="#assignmentModal" data-bs-toggle="modal" type="button">
         <i class="bi bi-plus-lg">
         </i>
         Create assignment
@@ -230,7 +462,7 @@
       </div>
      </section>
      <section aria-label="Dashboard summary" class="stats-grid">
-      <article class="stat-card interactive-card" data-animate="card">
+      <article class="stat-card interactive-card" data-animate="card" data-jump="students" tabindex="0">
        <div class="stat-top">
         <span>
          Total students
@@ -253,24 +485,24 @@
          vs. last month
         </span>
         <span class="mini-bars" aria-hidden="true">
-         <i style="--bar-h:12px">
+         <i class="bar-h-12">
          </i>
-         <i style="--bar-h:17px">
+         <i class="bar-h-17">
          </i>
-         <i style="--bar-h:14px">
+         <i class="bar-h-14">
          </i>
-         <i style="--bar-h:21px">
+         <i class="bar-h-21">
          </i>
-         <i style="--bar-h:18px">
+         <i class="bar-h-18">
          </i>
-         <i style="--bar-h:26px">
+         <i class="bar-h-26">
          </i>
-         <i style="--bar-h:22px">
+         <i class="bar-h-22">
          </i>
         </span>
        </div>
       </article>
-      <article class="stat-card interactive-card" data-animate="card">
+      <article class="stat-card interactive-card" data-animate="card" data-jump="courses" tabindex="0">
        <div class="stat-top">
         <span>
          Active courses
@@ -288,24 +520,24 @@
          Across <b>3 grade levels</b>
         </span>
         <span class="mini-bars green" aria-hidden="true">
-         <i style="--bar-h:17px">
+         <i class="bar-h-17">
          </i>
-         <i style="--bar-h:12px">
+         <i class="bar-h-12">
          </i>
-         <i style="--bar-h:21px">
+         <i class="bar-h-21">
          </i>
-         <i style="--bar-h:16px">
+         <i class="bar-h-16">
          </i>
-         <i style="--bar-h:23px">
+         <i class="bar-h-23">
          </i>
-         <i style="--bar-h:18px">
+         <i class="bar-h-18">
          </i>
-         <i style="--bar-h:26px">
+         <i class="bar-h-26">
          </i>
         </span>
        </div>
       </article>
-      <article class="stat-card interactive-card" data-animate="card">
+      <article class="stat-card interactive-card" data-animate="card" data-jump="timetable" tabindex="0">
        <div class="stat-top">
         <span>
          Classes today
@@ -315,7 +547,7 @@
          </i>
         </span>
        </div>
-       <div class="stat-value" data-counter="4" data-pad="2">
+       <div class="stat-value" data-counter="4" data-pad="2" id="totalClassesToday">
         04
        </div>
        <div class="stat-foot">
@@ -328,7 +560,7 @@
         </span>
        </div>
       </article>
-      <article class="stat-card interactive-card" data-animate="card">
+      <article class="stat-card interactive-card" data-animate="card" data-jump="assignments" tabindex="0">
        <div class="stat-top">
         <span>
          Assignments due
@@ -365,11 +597,20 @@
           Your classes and learning spaces for today
          </p>
         </div>
-        <button class="text-action" data-jump="timetable" type="button">
-         Full timetable
-         <i class="bi bi-arrow-right">
-         </i>
-        </button>
+        <div class="heading-actions">
+         <button class="btn btn-outline-primary add-schedule-btn" data-bs-target="#scheduleModal" data-bs-toggle="modal" id="addScheduleButton" type="button">
+          <i class="bi bi-plus-lg">
+          </i>
+          <span>
+           Add class
+          </span>
+         </button>
+         <button class="text-action full-timetable-btn" data-jump="timetable" type="button">
+          Full timetable
+          <i class="bi bi-arrow-right">
+          </i>
+         </button>
+        </div>
        </div>
        <div aria-label="Today's timetable summary" class="schedule-overview">
         <article>
@@ -381,7 +622,7 @@
           <small>
            Classes today
           </small>
-          <strong>
+          <strong id="scheduleTotalStat">
            4
           </strong>
           <span>
@@ -398,10 +639,10 @@
           <small>
            Subjects
           </small>
-          <strong>
+          <strong id="scheduleSubjectsStat">
            3
           </strong>
-          <span>
+          <span id="scheduleSubjectsList">
            Math, science, English
           </span>
          </div>
@@ -415,7 +656,7 @@
           <small>
            Learning spaces
           </small>
-          <strong>
+          <strong id="scheduleSpacesStat">
            3
           </strong>
           <span>
@@ -424,8 +665,8 @@
          </div>
         </article>
        </div>
-       <div class="schedule-list">
-        <article class="schedule-item">
+       <div class="schedule-list" id="scheduleList">
+        <article class="schedule-item" data-room="Room 204" data-subject="Mathematics" data-time="09:00">
          <time>
           09:00
           <small>
@@ -452,8 +693,12 @@
          <span class="room-pill">
           <i class="bi bi-door-open"></i> Room 204
          </span>
+         <button aria-label="Remove Introduction to Algebra" class="schedule-remove" title="Remove class" type="button">
+          <i class="bi bi-trash3">
+          </i>
+         </button>
         </article>
-        <article class="schedule-item">
+        <article class="schedule-item" data-room="Lab 03" data-subject="Science" data-time="10:30">
          <time>
           10:30
           <small>
@@ -480,8 +725,12 @@
          <span class="room-pill">
           <i class="bi bi-eyedropper"></i> Lab 03
          </span>
+         <button aria-label="Remove Biology: Cell Structure" class="schedule-remove" title="Remove class" type="button">
+          <i class="bi bi-trash3">
+          </i>
+         </button>
         </article>
-        <article class="schedule-item">
+        <article class="schedule-item" data-room="Room 108" data-subject="English" data-time="13:00">
          <time>
           01:00
           <small>
@@ -508,8 +757,12 @@
          <span class="room-pill">
           <i class="bi bi-door-open"></i> Room 108
          </span>
+         <button aria-label="Remove Creative Writing" class="schedule-remove" title="Remove class" type="button">
+          <i class="bi bi-trash3">
+          </i>
+         </button>
         </article>
-        <article class="schedule-item">
+        <article class="schedule-item" data-room="Room 204" data-subject="Mathematics" data-time="14:30">
          <time>
           02:30
           <small>
@@ -536,7 +789,18 @@
          <span class="room-pill">
           <i class="bi bi-door-open"></i> Room 204
          </span>
+         <button aria-label="Remove Geometry Essentials" class="schedule-remove" title="Remove class" type="button">
+          <i class="bi bi-trash3">
+          </i>
+         </button>
         </article>
+       </div>
+       <div class="empty-schedule d-none" id="emptySchedule">
+        <i class="bi bi-calendar2-x">
+        </i>
+        <p>
+         No classes scheduled for today. Click "Add class" to schedule a session.
+        </p>
        </div>
       </section>
       <section class="panel attendance-panel" data-animate="panel" id="attendance">
@@ -556,7 +820,7 @@
         </span>
        </div>
        <div class="attendance-summary">
-        <div class="attendance-ring" id="attendanceRing" style="--attendance-pct: 88">
+        <div class="attendance-ring" id="attendanceRing">
          <div>
           <strong id="attendancePercent">
            88%
@@ -583,6 +847,17 @@
            3
           </b>
          </span>
+         <div class="attendance-stepper" aria-label="Adjust present count">
+          <button aria-label="Decrease present count" class="stepper-btn" id="presentDecBtn" title="Mark 1 student absent" type="button">
+           <i class="bi bi-dash"></i>
+          </button>
+          <button aria-label="Increase present count" class="stepper-btn" id="presentIncBtn" title="Mark 1 student present" type="button">
+           <i class="bi bi-plus"></i>
+          </button>
+          <button class="stepper-all-btn" id="markAllPresentBtn" title="Mark all 24 students present" type="button">
+           100%
+          </button>
+         </div>
         </div>
        </div>
        <div aria-label="Class attendance totals" class="attendance-detail-grid">
@@ -595,7 +870,7 @@
           <small>
            Enrolled students
           </small>
-          <strong>
+          <strong id="attendanceEnrolledStat">
            24
           </strong>
           <span>
@@ -612,10 +887,10 @@
           <small>
            Present today
           </small>
-          <strong>
+          <strong id="attendancePresentStat">
            21
           </strong>
-          <span>
+          <span id="attendancePresentPctNote">
            87.5% of class
           </span>
          </div>
@@ -629,7 +904,7 @@
           <small>
            Not present
           </small>
-          <strong>
+          <strong id="attendanceAbsentStat">
            3
           </strong>
           <span>
@@ -669,6 +944,13 @@
           </i>
           <input aria-label="Search students" id="studentSearch" placeholder="Filter roster..." type="search"/>
          </label>
+         <button class="btn btn-light add-schedule-btn" id="exportStudentsCsvBtn" title="Export student roster as CSV" type="button">
+          <i class="bi bi-filetype-csv">
+          </i>
+          <span>
+           Export CSV
+          </span>
+         </button>
          <button class="btn btn-outline-primary add-student" data-bs-target="#studentModal" data-bs-toggle="modal" type="button">
           <i class="bi bi-plus-lg">
           </i>
@@ -694,7 +976,8 @@
            <th>
             GRADE
            </th>
-           <th>
+           <th scope="col">
+            <span class="visually-hidden">Actions</span>
            </th>
           </tr>
          </thead>
@@ -724,7 +1007,7 @@
              <span class="attendance-value">
               96%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:96%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-96"></i></span>
             </div>
            </td>
            <td>
@@ -764,7 +1047,7 @@
              <span class="attendance-value">
               89%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:89%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-89"></i></span>
             </div>
            </td>
            <td>
@@ -804,7 +1087,7 @@
              <span class="attendance-value">
               92%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:92%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-92"></i></span>
             </div>
            </td>
            <td>
@@ -844,7 +1127,7 @@
              <span class="attendance-value">
               78%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i class="warn" style="width:78%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="warn w-pct-78"></i></span>
             </div>
            </td>
            <td>
@@ -884,7 +1167,7 @@
              <span class="attendance-value">
               94%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:94%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-94"></i></span>
             </div>
            </td>
            <td>
@@ -924,7 +1207,7 @@
              <span class="attendance-value">
               87%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:87%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-87"></i></span>
             </div>
            </td>
            <td>
@@ -964,7 +1247,7 @@
              <span class="attendance-value">
               98%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:98%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-98"></i></span>
             </div>
            </td>
            <td>
@@ -1004,7 +1287,7 @@
              <span class="attendance-value">
               82%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:82%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-82"></i></span>
             </div>
            </td>
            <td>
@@ -1044,7 +1327,7 @@
              <span class="attendance-value">
               91%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:91%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-91"></i></span>
             </div>
            </td>
            <td>
@@ -1084,7 +1367,7 @@
              <span class="attendance-value">
               89%
              </span>
-             <span class="attendance-mini-track" aria-hidden="true"><i style="width:89%"></i></span>
+             <span class="attendance-mini-track" aria-hidden="true"><i class="w-pct-89"></i></span>
             </div>
            </td>
            <td>
@@ -1207,9 +1490,15 @@
            Due Nov 24, 2026
           </small>
          </div>
-         <span class="status-pill status-pending" role="button" tabindex="0" title="Click to toggle status">
-          Pending
-         </span>
+         <div class="assignment-actions">
+          <span class="status-pill status-pending" role="button" tabindex="0" title="Click to cycle status">
+           Pending
+          </span>
+          <button aria-label="Remove Algebra problem set" class="assignment-remove" title="Remove assignment" type="button">
+           <i class="bi bi-trash3">
+           </i>
+          </button>
+         </div>
         </article>
         <article class="assignment-item">
          <span class="assignment-icon orange-bg">
@@ -1232,9 +1521,15 @@
            Due Nov 26, 2026
           </small>
          </div>
-         <span class="status-pill status-progress" role="button" tabindex="0" title="Click to toggle status">
-          In progress
-         </span>
+         <div class="assignment-actions">
+          <span class="status-pill status-progress" role="button" tabindex="0" title="Click to cycle status">
+           In progress
+          </span>
+          <button aria-label="Remove Cell structure worksheet" class="assignment-remove" title="Remove assignment" type="button">
+           <i class="bi bi-trash3">
+           </i>
+          </button>
+         </div>
         </article>
         <article class="assignment-item">
          <span class="assignment-icon blue-bg">
@@ -1257,10 +1552,23 @@
            Due Nov 30, 2026
           </small>
          </div>
-         <span class="status-pill status-pending" role="button" tabindex="0" title="Click to toggle status">
-          Pending
-         </span>
+         <div class="assignment-actions">
+          <span class="status-pill status-pending" role="button" tabindex="0" title="Click to cycle status">
+           Pending
+          </span>
+          <button aria-label="Remove My favorite story" class="assignment-remove" title="Remove assignment" type="button">
+           <i class="bi bi-trash3">
+           </i>
+          </button>
+         </div>
         </article>
+       </div>
+       <div class="empty-schedule d-none" id="emptyAssignments">
+        <i class="bi bi-clipboard2-x">
+        </i>
+        <p>
+         No assignments due right now. Click "Create assignment" to add one.
+        </p>
        </div>
        <button class="all-assignments" data-jump="assignments" type="button">
         View all assignments
@@ -1287,14 +1595,22 @@
         </button>
        </div>
        <div class="courses-grid" id="coursesGrid">
-        <article class="course-card course-purple interactive-card">
-         <span class="course-symbol">
-          <i class="bi bi-braces-asterisk">
-          </i>
-         </span>
-         <span class="course-term">
-          FALL 2026
-         </span>
+        <article class="course-card course-purple interactive-card" data-course="Mathematics">
+         <div class="course-card-top">
+          <span class="course-symbol">
+           <i class="bi bi-braces-asterisk">
+           </i>
+          </span>
+          <div class="course-card-meta">
+           <span class="course-term">
+            FALL 2026
+           </span>
+           <button aria-label="Remove Mathematics" class="course-remove" title="Remove course" type="button">
+            <i class="bi bi-trash3">
+            </i>
+           </button>
+          </div>
+         </div>
          <h3>
           Mathematics
          </h3>
@@ -1303,7 +1619,7 @@
          </p>
          <div class="course-progress">
           <span>
-           <i style="width:72%">
+           <i class="w-pct-72">
            </i>
           </span>
           <small>
@@ -1311,14 +1627,22 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-orange interactive-card">
-         <span class="course-symbol">
-          <i class="bi bi-flower1">
-          </i>
-         </span>
-         <span class="course-term">
-          FALL 2026
-         </span>
+        <article class="course-card course-orange interactive-card" data-course="Biology">
+         <div class="course-card-top">
+          <span class="course-symbol">
+           <i class="bi bi-flower1">
+           </i>
+          </span>
+          <div class="course-card-meta">
+           <span class="course-term">
+            FALL 2026
+           </span>
+           <button aria-label="Remove Biology" class="course-remove" title="Remove course" type="button">
+            <i class="bi bi-trash3">
+            </i>
+           </button>
+          </div>
+         </div>
          <h3>
           Biology
          </h3>
@@ -1327,7 +1651,7 @@
          </p>
          <div class="course-progress">
           <span>
-           <i style="width:58%">
+           <i class="w-pct-58">
            </i>
           </span>
           <small>
@@ -1335,14 +1659,22 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-blue interactive-card">
-         <span class="course-symbol">
-          <i class="bi bi-book-half">
-          </i>
-         </span>
-         <span class="course-term">
-          FALL 2026
-         </span>
+        <article class="course-card course-blue interactive-card" data-course="Creative Writing">
+         <div class="course-card-top">
+          <span class="course-symbol">
+           <i class="bi bi-book-half">
+           </i>
+          </span>
+          <div class="course-card-meta">
+           <span class="course-term">
+            FALL 2026
+           </span>
+           <button aria-label="Remove Creative Writing" class="course-remove" title="Remove course" type="button">
+            <i class="bi bi-trash3">
+            </i>
+           </button>
+          </div>
+         </div>
          <h3>
           Creative Writing
          </h3>
@@ -1351,7 +1683,7 @@
          </p>
          <div class="course-progress">
           <span>
-           <i style="width:84%">
+           <i class="w-pct-84">
            </i>
           </span>
           <small>
@@ -1359,14 +1691,22 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-purple interactive-card">
-         <span class="course-symbol">
-          <i class="bi bi-lightning-charge">
-          </i>
-         </span>
-         <span class="course-term">
-          FALL 2026
-         </span>
+        <article class="course-card course-purple interactive-card" data-course="Physics">
+         <div class="course-card-top">
+          <span class="course-symbol">
+           <i class="bi bi-lightning-charge">
+           </i>
+          </span>
+          <div class="course-card-meta">
+           <span class="course-term">
+            FALL 2026
+           </span>
+           <button aria-label="Remove Physics" class="course-remove" title="Remove course" type="button">
+            <i class="bi bi-trash3">
+            </i>
+           </button>
+          </div>
+         </div>
          <h3>
           Physics
          </h3>
@@ -1375,7 +1715,7 @@
          </p>
          <div class="course-progress">
           <span>
-           <i style="width:46%">
+           <i class="w-pct-46">
            </i>
           </span>
           <small>
@@ -1383,14 +1723,22 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-orange interactive-card">
-         <span class="course-symbol">
-          <i class="bi bi-globe-americas">
-          </i>
-         </span>
-         <span class="course-term">
-          FALL 2026
-         </span>
+        <article class="course-card course-orange interactive-card" data-course="World History">
+         <div class="course-card-top">
+          <span class="course-symbol">
+           <i class="bi bi-globe-americas">
+           </i>
+          </span>
+          <div class="course-card-meta">
+           <span class="course-term">
+            FALL 2026
+           </span>
+           <button aria-label="Remove World History" class="course-remove" title="Remove course" type="button">
+            <i class="bi bi-trash3">
+            </i>
+           </button>
+          </div>
+         </div>
          <h3>
           World History
          </h3>
@@ -1399,7 +1747,7 @@
          </p>
          <div class="course-progress">
           <span>
-           <i style="width:63%">
+           <i class="w-pct-63">
            </i>
           </span>
           <small>
@@ -1407,14 +1755,22 @@
           </small>
          </div>
         </article>
-        <article class="course-card course-blue interactive-card">
-         <span class="course-symbol">
-          <i class="bi bi-laptop">
-          </i>
-         </span>
-         <span class="course-term">
-          FALL 2026
-         </span>
+        <article class="course-card course-blue interactive-card" data-course="Computer Science">
+         <div class="course-card-top">
+          <span class="course-symbol">
+           <i class="bi bi-laptop">
+           </i>
+          </span>
+          <div class="course-card-meta">
+           <span class="course-term">
+            FALL 2026
+           </span>
+           <button aria-label="Remove Computer Science" class="course-remove" title="Remove course" type="button">
+            <i class="bi bi-trash3">
+            </i>
+           </button>
+          </div>
+         </div>
          <h3>
           Computer Science
          </h3>
@@ -1423,7 +1779,7 @@
          </p>
          <div class="course-progress">
           <span>
-           <i style="width:35%">
+           <i class="w-pct-35">
            </i>
           </span>
           <small>
@@ -1431,6 +1787,13 @@
           </small>
          </div>
         </article>
+       </div>
+       <div class="empty-schedule d-none" id="emptyCourses">
+        <i class="bi bi-journal-x">
+        </i>
+        <p>
+         No active courses. Click "Add course" to create a learning space.
+        </p>
        </div>
       </section>
       <section class="panel results-panel" data-animate="panel" id="results">
@@ -1443,11 +1806,20 @@
           Latest student performance
          </p>
         </div>
-        <button class="text-action" data-jump="results" type="button">
-         See all
-         <i class="bi bi-arrow-right">
-         </i>
-        </button>
+        <div class="heading-actions">
+         <button class="btn btn-outline-primary add-schedule-btn" data-bs-target="#resultModal" data-bs-toggle="modal" id="addResultButton" type="button">
+          <i class="bi bi-plus-lg">
+          </i>
+          <span>
+           Add result
+          </span>
+         </button>
+         <button class="text-action see-all-results-btn" data-jump="results" type="button">
+          See all
+          <i class="bi bi-arrow-right">
+          </i>
+         </button>
+        </div>
        </div>
        <div aria-label="Performance summary" class="results-overview">
         <article>
@@ -1459,7 +1831,7 @@
           <small>
            Recent assessments
           </small>
-          <strong>
+          <strong id="resultsTotalStat">
            3
           </strong>
           <span>
@@ -1476,7 +1848,7 @@
           <small>
            Average score
           </small>
-          <strong>
+          <strong id="resultsAverageStat">
            91%
           </strong>
           <span>
@@ -1493,7 +1865,7 @@
           <small>
            Highest score
           </small>
-          <strong>
+          <strong id="resultsHighestStat">
            96%
           </strong>
           <span>
@@ -1502,8 +1874,8 @@
          </div>
         </article>
        </div>
-       <div class="results-list">
-        <div class="result-row">
+       <div class="results-list" id="resultsList">
+        <div class="result-row" data-score="92">
          <div class="result-student">
           <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=47"/>
           <span>
@@ -1515,23 +1887,29 @@
            </small>
           </span>
          </div>
-         <div class="result-score">
-          <strong>
-           92
-           <span>
-            /100
+         <div class="result-right">
+          <div class="result-score">
+           <strong>
+            92
+            <span>
+             /100
+            </span>
+           </strong>
+           <small>
+            92% · Excellent
+           </small>
+           <span class="score-track">
+            <i class="w-pct-92">
+            </i>
            </span>
-          </strong>
-          <small>
-           92% · Excellent
-          </small>
-          <span class="score-track">
-           <i style="width:92%">
+          </div>
+          <button aria-label="Remove Emma Wilson result" class="result-remove" title="Remove result" type="button">
+           <i class="bi bi-trash3">
            </i>
-          </span>
+          </button>
          </div>
         </div>
-        <div class="result-row">
+        <div class="result-row" data-score="84">
          <div class="result-student">
           <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=12"/>
           <span>
@@ -1543,23 +1921,29 @@
            </small>
           </span>
          </div>
-         <div class="result-score">
-          <strong>
-           84
-           <span>
-            /100
+         <div class="result-right">
+          <div class="result-score">
+           <strong>
+            84
+            <span>
+             /100
+            </span>
+           </strong>
+           <small>
+            84% · Proficient
+           </small>
+           <span class="score-track">
+            <i class="w-pct-84">
+            </i>
            </span>
-          </strong>
-          <small>
-           84% · Proficient
-          </small>
-          <span class="score-track">
-           <i style="width:84%">
+          </div>
+          <button aria-label="Remove Noah Thomas result" class="result-remove" title="Remove result" type="button">
+           <i class="bi bi-trash3">
            </i>
-          </span>
+          </button>
          </div>
         </div>
-        <div class="result-row">
+        <div class="result-row" data-score="96">
          <div class="result-student">
           <img alt="" loading="lazy" src="https://i.pravatar.cc/80?img=44"/>
           <span>
@@ -1571,22 +1955,35 @@
            </small>
           </span>
          </div>
-         <div class="result-score">
-          <strong>
-           96
-           <span>
-            /100
+         <div class="result-right">
+          <div class="result-score">
+           <strong>
+            96
+            <span>
+             /100
+            </span>
+           </strong>
+           <small>
+            96% · Top score
+           </small>
+           <span class="score-track">
+            <i class="w-pct-96">
+            </i>
            </span>
-          </strong>
-          <small>
-           96% · Top score
-          </small>
-          <span class="score-track">
-           <i style="width:96%">
+          </div>
+          <button aria-label="Remove Ava Patel result" class="result-remove" title="Remove result" type="button">
+           <i class="bi bi-trash3">
            </i>
-          </span>
+          </button>
          </div>
         </div>
+       </div>
+       <div class="empty-schedule d-none" id="emptyResults">
+        <i class="bi bi-bar-chart">
+        </i>
+        <p>
+         No assessment results recorded yet. Click "Add result" to log a score.
+        </p>
        </div>
       </section>
      </div>
@@ -1650,6 +2047,10 @@
           Students can register their project teams with the science department by the end of this week.
          </p>
         </div>
+        <button aria-label="Manage announcements" class="announcement-more" title="Manage announcements" type="button">
+         <i class="bi bi-three-dots">
+         </i>
+        </button>
        </div>
        <div class="announcement-content">
         <span class="announcement-icon">
@@ -1670,6 +2071,10 @@
           Review your class reports and share any follow-up notes with families before Friday.
          </p>
         </div>
+        <button aria-label="Manage announcements" class="announcement-more" title="Manage announcements" type="button">
+         <i class="bi bi-three-dots">
+         </i>
+        </button>
        </div>
       </div>
      </section>
@@ -1741,30 +2146,184 @@
       <div class="manager-announcement-list" id="announcementManagerList">
       </div>
      </section>
+     <section class="panel database-panel" data-animate="panel" id="database">
+      <div class="panel-heading">
+       <div>
+        <h2>
+         SQL Database &amp; Query Studio
+        </h2>
+        <p>
+         Live relational SQL engine backed by schema.sql — inspect tables, execute SQL queries, and export SQL dumps
+        </p>
+       </div>
+       <div class="heading-actions">
+        <button class="btn btn-light add-schedule-btn" id="viewSchemaSqlBtn" type="button">
+         <i class="bi bi-file-earmark-code">
+         </i>
+         <span>
+          View schema.sql
+         </span>
+        </button>
+        <button class="btn btn-outline-primary add-schedule-btn" id="exportSqlDumpBtn" type="button">
+         <i class="bi bi-download">
+         </i>
+         <span>
+          Export .SQL Dump
+         </span>
+        </button>
+       </div>
+      </div>
+      <div class="sql-kpi-row">
+       <article class="sql-kpi-card">
+        <span class="sql-kpi-icon">
+         <i class="bi bi-database-check">
+         </i>
+        </span>
+        <div>
+         <small>
+          DATABASE ENGINE
+         </small>
+         <strong>
+          SQLite 3 · Relational
+         </strong>
+         <span id="sqlConnectionMode">
+          Hybrid Local + REST API Sync
+         </span>
+        </div>
+       </article>
+       <article class="sql-kpi-card">
+        <span class="sql-kpi-icon emerald">
+         <i class="bi bi-table">
+         </i>
+        </span>
+        <div>
+         <small>
+          ACTIVE TABLES
+         </small>
+         <strong>
+          7 Tables
+         </strong>
+         <span>
+          users, students, courses, schedule, assignments, results, announcements
+         </span>
+        </div>
+       </article>
+       <article class="sql-kpi-card">
+        <span class="sql-kpi-icon amber">
+         <i class="bi bi-hdd-stack">
+         </i>
+        </span>
+        <div>
+         <small>
+          TOTAL RECORDS
+         </small>
+         <strong id="dbTotalRowsStat">
+          28 Rows
+         </strong>
+         <span>
+          Auto-committed on every action
+         </span>
+        </div>
+       </article>
+      </div>
+      <div class="sql-studio-grid">
+       <div class="sql-console-box">
+        <div class="sql-Preset-bar">
+         <span class="sql-preset-label">TABLES &amp; PRESETS:</span>
+         <button class="sql-preset-chip active" data-sql="SELECT * FROM students ORDER BY id ASC;" type="button">
+          <i class="bi bi-table"></i> students
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT * FROM schedule ORDER BY start_time ASC;" type="button">
+          <i class="bi bi-table"></i> schedule
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT * FROM courses ORDER BY progress_pct DESC;" type="button">
+          <i class="bi bi-table"></i> courses
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT * FROM assignments;" type="button">
+          <i class="bi bi-table"></i> assignments
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT * FROM results ORDER BY score DESC;" type="button">
+          <i class="bi bi-table"></i> results
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT * FROM announcements;" type="button">
+          <i class="bi bi-table"></i> announcements
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT id, username, email, role, role_title FROM users;" type="button">
+          <i class="bi bi-shield-lock"></i> users
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT full_name, course_name, attendance_pct, letter_grade FROM students WHERE attendance_pct &gt;= 90;" type="button">
+          <i class="bi bi-funnel"></i> Top Attendance (&gt;=90%)
+         </button>
+         <button class="sql-preset-chip" data-sql="SELECT COUNT(*) FROM students;" type="button">
+          <i class="bi bi-calculator"></i> COUNT(*)
+         </button>
+        </div>
+        <div class="sql-editor-wrap">
+         <label class="visually-hidden" for="sqlQueryInput">SQL Query Editor</label>
+         <textarea class="form-control sql-editor-input" id="sqlQueryInput" rows="3" spellcheck="false">SELECT * FROM students ORDER BY id ASC;</textarea>
+         <div class="sql-editor-actions">
+          <span class="sql-Result-meta" id="sqlResultMeta">
+           <i class="bi bi-check-circle-fill"></i> Query executed in 0.4ms · 10 rows returned
+          </span>
+          <div class="d-flex gap-2">
+           <button class="btn btn-outline-light btn-sm sql-copy-btn" id="copySqlQueryBtn" type="button">
+            <i class="bi bi-clipboard"></i> Copy SQL
+           </button>
+           <button class="btn btn-primary btn-sm sql-run-btn" id="runSqlQueryBtn" type="button">
+            <i class="bi bi-play-fill"></i> Run SQL Query
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="table-responsive sql-result-table-wrap">
+        <table class="table student-table sql-results-table">
+         <thead id="sqlResultHead">
+         </thead>
+         <tbody id="sqlResultBody">
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </section>
      <section class="panel profile-panel" data-animate="panel" id="profile">
       <div class="panel-heading">
        <div>
         <h2>
-         Teacher profile
+         Teacher &amp; Admin profile
         </h2>
         <p>
-         Your account, department credentials, and contact details
+         Your account, department credentials, security, and contact details
         </p>
        </div>
-       <button class="text-action" id="editProfileButton" type="button">
-        <i class="bi bi-pencil">
-        </i>
-        Edit profile
-       </button>
+       <div class="heading-actions">
+        <button class="btn btn-outline-primary add-schedule-btn" data-bs-target="#passwordModal" data-bs-toggle="modal" id="changePasswordButton" type="button">
+         <i class="bi bi-key">
+         </i>
+         <span>
+          Change password
+         </span>
+        </button>
+        <button class="text-action" id="editProfileButton" type="button">
+         <i class="bi bi-pencil">
+         </i>
+         Edit profile
+        </button>
+       </div>
       </div>
       <div class="profile-details">
        <img alt="Olivia Martin" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=160&amp;q=80"/>
        <div>
-        <strong>
-         Olivia Martin
-        </strong>
-        <span>
-         Mathematics &amp; Science Teacher · Senior Faculty
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+         <strong>
+          Olivia Martin
+         </strong>
+         <span class="role-badge" id="profileRoleBadge">
+          ADMIN
+         </span>
+        </div>
+        <span id="profileRoleTitle">
+         Mathematics &amp; Science Teacher · System Administrator
         </span>
        </div>
        <div class="profile-contact">
@@ -1778,6 +2337,20 @@
          </i>
          +1 (555) 204-8190
         </span>
+       </div>
+      </div>
+      <div class="profile-security-bar">
+       <div class="security-status">
+        <i class="bi bi-shield-check"></i>
+        <span>End-to-end workspace persistence active — all changes save automatically.</span>
+       </div>
+       <div class="security-actions">
+        <button class="btn btn-light btn-sm" id="resetWorkspaceButton" type="button">
+         <i class="bi bi-arrow-counterclockwise"></i> Reset demo data
+        </button>
+        <button class="btn btn-outline-danger btn-sm" id="profileLogoutButton" type="button">
+         <i class="bi bi-box-arrow-right"></i> Sign out
+        </button>
        </div>
       </div>
      </section>
@@ -1877,6 +2450,31 @@
        Student full name
       </label>
       <input class="form-control" id="editStudentNameInput" required=""/>
+      <label class="form-label mt-3" for="editStudentEmailInput">
+       Email address
+      </label>
+      <input class="form-control" id="editStudentEmailInput" required="" type="email"/>
+      <div class="row g-3 mt-1">
+       <div class="col-sm-6">
+        <label class="form-label" for="editStudentAttendanceInput">
+         Attendance (%)
+        </label>
+        <input class="form-control" id="editStudentAttendanceInput" max="100" min="0" required="" type="number" value="95"/>
+       </div>
+       <div class="col-sm-6">
+        <label class="form-label" for="editStudentGradeInput">
+         Letter grade
+        </label>
+        <select class="form-select" id="editStudentGradeInput">
+         <option value="A">A</option>
+         <option value="A−">A−</option>
+         <option value="B+">B+</option>
+         <option value="B">B</option>
+         <option value="B−">B−</option>
+         <option value="C+">C+</option>
+        </select>
+       </div>
+      </div>
      </div>
      <div class="modal-footer justify-content-between">
       <button class="btn btn-outline-danger" id="deleteStudentBtn" type="button">
@@ -2005,6 +2603,118 @@
     </form>
    </div>
   </div>
+  <div aria-hidden="true" aria-labelledby="scheduleModalTitle" class="modal fade" id="scheduleModal" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" id="scheduleForm">
+     <div class="modal-header">
+      <div>
+       <h2 class="modal-title" id="scheduleModalTitle">
+        Add class to schedule
+       </h2>
+       <p>
+        Schedule a class session and learning space for today.
+       </p>
+      </div>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <label class="form-label" for="scheduleTitle">
+       Class topic / title
+      </label>
+      <input class="form-control" id="scheduleTitle" placeholder="e.g. Linear Equations &amp; Graphs" required=""/>
+      <label class="form-label mt-3" for="scheduleCourse">
+       Course &amp; grade
+      </label>
+      <select class="form-select" id="scheduleCourse">
+       <option>
+        Mathematics - Grade 9A
+       </option>
+       <option>
+        Science - Grade 10B
+       </option>
+       <option>
+        English - Grade 8A
+       </option>
+       <option>
+        Mathematics - Grade 9B
+       </option>
+       <option>
+        Physics - Grade 10
+       </option>
+       <option>
+        World History - Grade 8
+       </option>
+       <option>
+        Computer Science - Grade 9
+       </option>
+      </select>
+      <div class="row g-3 mt-1">
+       <div class="col-sm-6">
+        <label class="form-label" for="scheduleTime">
+         Start time
+        </label>
+        <input class="form-control" id="scheduleTime" required="" type="time" value="11:30"/>
+       </div>
+       <div class="col-sm-6">
+        <label class="form-label" for="scheduleRoom">
+         Room / space
+        </label>
+        <input class="form-control" id="scheduleRoom" placeholder="e.g. Room 204 or Lab 03" required=""/>
+       </div>
+      </div>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Cancel
+      </button>
+      <button class="btn btn-primary" type="submit">
+       Add to schedule
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="resultModalTitle" class="modal fade" id="resultModal" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" id="resultForm">
+     <div class="modal-header">
+      <div>
+       <h2 class="modal-title" id="resultModalTitle">
+        Add student result
+       </h2>
+       <p>
+        Record a recent assessment or quiz score.
+       </p>
+      </div>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <label class="form-label" for="resultStudentName">
+       Student name
+      </label>
+      <input class="form-control" id="resultStudentName" placeholder="e.g. Emma Wilson" required=""/>
+      <label class="form-label mt-3" for="resultAssessmentName">
+       Assessment title
+      </label>
+      <input class="form-control" id="resultAssessmentName" placeholder="e.g. Geometry midterm" required=""/>
+      <label class="form-label mt-3" for="resultScoreInput">
+       Score (0 – 100)
+      </label>
+      <input class="form-control" id="resultScoreInput" max="100" min="0" placeholder="95" required="" type="number"/>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Cancel
+      </button>
+      <button class="btn btn-primary" type="submit">
+       Save result
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
   <div aria-hidden="true" aria-labelledby="profileModalTitle" class="modal fade" id="profileModal" tabindex="-1">
    <div class="modal-dialog modal-dialog-centered">
     <form class="modal-content" id="profileForm">
@@ -2040,6 +2750,42 @@
       </button>
       <button class="btn btn-primary" type="submit">
        Save changes
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="passwordModalTitle" class="modal fade" id="passwordModal" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" id="passwordForm">
+     <div class="modal-header">
+      <div>
+       <h2 class="modal-title" id="passwordModalTitle">
+        Change account password
+       </h2>
+       <p>
+        Update the password for your current Admin or Educator account.
+       </p>
+      </div>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+      </button>
+     </div>
+     <div class="modal-body">
+      <label class="form-label" for="currentPasswordInput">
+       Current password
+      </label>
+      <input class="form-control" id="currentPasswordInput" placeholder="Enter current password" required="" type="password"/>
+      <label class="form-label mt-3" for="newPasswordInput">
+       New password
+      </label>
+      <input class="form-control" id="newPasswordInput" minlength="6" placeholder="At least 6 characters" required="" type="password"/>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-light" data-bs-dismiss="modal" type="button">
+       Cancel
+      </button>
+      <button class="btn btn-primary" type="submit">
+       Update password
       </button>
      </div>
     </form>
